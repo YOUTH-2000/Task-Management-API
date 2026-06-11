@@ -51,28 +51,28 @@ class LoginScreen(Screen):
             height = 50
         )
 
-        register_button = Button(
-            text = "Create Account",
-            size_hint = (1,None),
-            height = 50
-        )
-
         login_button = Button(
             text = "Login",
             size_hint = (1, None),
             height = 50      
         )
 
-        register_button.bind(
-            on_press = lambda x: setattr(self.manager, "current", "register")
+        register_button = Button(
+            text = "Create Account",
+            size_hint = (1,None),
+            height = 50
         )
 
         login_button.bind(on_press = self.login)
 
+        register_button.bind(
+            on_press = lambda x: setattr(self.manager, "current", "register")
+        )
+
         layout.add_widget(self.email)
         layout.add_widget(self.password)
-        layout.add_widget(register_button)
         layout.add_widget(login_button)
+        layout.add_widget(register_button)
 
         self.add_widget(layout)
 
@@ -267,7 +267,7 @@ class TaskScreen(Screen):
 
         token = App.get_running_app().token
             
-        response = create_task(token, title)
+        response = create_task(token, title,)
 
         if response.status_code == 200:
             self.title_input.text = ""
