@@ -32,7 +32,7 @@ def get_tasks(token):
         headers=headers
     )
 
-def create_task(token, title, description, status, priority):
+def create_task(token, title):
     headers = {"Authorization": f"Bearer {token}"}
 
     return requests.post(
