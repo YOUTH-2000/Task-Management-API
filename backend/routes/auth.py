@@ -20,6 +20,9 @@ def register(user_data: UserCreate, db: Session = Depends(get_db)):
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already exists")
     
+    # hashed_password = hash_password(user_data.password)
+
+    
     # Call the user service to create a new user
     new_user = create_user(db, user_data)
     return {"message": "User registered successfully", "user": new_user}
