@@ -233,7 +233,7 @@ class TaskScreen(Screen):
         layout.add_widget(scroll)
         layout.add_widget(top_box)
 
-        self.button.bind(on_press=self.add_task)
+        add_button.bind(on_press=self.add_task)
 
         self.add_widget(layout)
 
