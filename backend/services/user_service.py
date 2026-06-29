@@ -41,7 +41,7 @@ def update_user(db, user_id, user_data):
     user = get_user_by_id(db, user_id)
     if not user:
         return None
-    
+     
     user.username = user_data.username
     user.email = user_data.email
 

@@ -46,10 +46,19 @@ def create_task(token, title):
         headers = headers
     )
 
-def delete_task_api(token, task_id):
+def edit_task(token,task_id, title):
     headers = {"Authorization": f"Bearer {token}"}
 
     return requests.put(
+        f"{BASE_URL}/tasks/{task_id}",
+        json = {"title" : title},
+        headers = headers
+    )
+
+def delete_task_api(token, task_id):
+    headers = {"Authorization": f"Bearer {token}"}
+
+    return requests.delete(
         f"{BASE_URL}/tasks/{task_id}",
         headers = headers
     )
